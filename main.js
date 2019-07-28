@@ -2,7 +2,7 @@ console.log('GOOD LUCK 👩‍💻 👨‍💻')
 // Please focus
 
 /* Q1:
-Usind Map
+Using Map
 Create a function called MultiByNum1OrNum2
 that takes an array of numbers and two numbers as a parameter
 and return a new array after mutiple each elemnt to the num1
@@ -22,10 +22,18 @@ Output =>
 [49, 20, 500]
 
 */
-
-function MultiByNum1OrNum2() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+arr = [7,2,50]
+function MultiByNum1OrNum2(arr, n1, n2) {
+       
+  var list = arr.map(index => {
+    if (index % n1 === 0)
+      return index * n1;
+    else
+      return index * n2;
+  })
+  return list;
 }
+console.log(MultiByNum1OrNum2(arr , 7 , 10))
 
 /* Q2:
 Using Filter
@@ -57,10 +65,26 @@ Output =>
   { name: "mercer",age:26}
 ]
 */
+var arrOfObj1 = [
+  { name: "alex" ,age:22},
+  { name: "mercer",age:26},
+  { name: "alice" ,age:33},
+  { name: "zaheer",age:35},
+  { name: "elizabeth",age:45}
+]
+function longerAndYounger(arr, number1, number2) {
+  
+  var list = arr.filter(index => {
+    var v1 = index.name;
+    var v2 = index.age;
+    if (v1.length > number1 && v2 < number2)
+      return index;
+  })
 
-function longerAndYounger() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+  return list;
 }
+console.log(longerAndYounger(arrOfObj1,4,30))
+
 
 /* Q3:
 Using Reduce
@@ -89,8 +113,15 @@ Output =>
 "alice, fried chiken, pizaa, burger, hot dog, eggs"
   
 */
-function nameAndAllFoods() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+function nameAndAllFoods(objectsOfArray, num) {
+  
+  return  objectsOfArray.reduce(function(result, element, index) {
+    if(index === num) {
+      result = element.name + reuslt;
+    }
+
+    return result + ', ' + element.food;
+  }); 
 }
 
 
